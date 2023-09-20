@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{% static 'CSS/index.css' %}" rel="stylesheet">
+
+<title>Test Server</title>
+</head>
+<body>
+<div class=".container-fluid card_2 " >
+    <h1 style="text-align: left;width: fit-content;">{{ data }}</h1>
+    <div class="container" style="text-align: right;margin-right: 0px; width: fit-content;vertical-align: top;margin-top: -50px; ">
+<div class="btn-group " >
+    <a href="/admin" class="btn btn " aria-current="page" id="top-button">Admin</a>
+    <a href="#" class="btn btn" id="top-button">Profile</a>
+    <a href="#" class="btn btn" id="top-button">Network</a>
+  </div> 
+  </div>
+</div>
+<div class="container-fluid card" style="margin-top: 1px;;">
+    <div class="row" >
+    <div class="col-sm-3 m-1 card" >
+<form class="row g-3 needs-validation p-2 m-3" novalidate  enctype="multipart/form-data"  method="POST" action="/apppage/home/onewayanova/upload_file" style="background-color:rgb(240, 240, 248); border-radius: 10px;">
+   {% csrf_token %}
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Upload File</label>
+    <input type="file" class="" name="File">
+    <label for="validationCustom01" class="form-label">Single</label>
+    <input type="checkbox" class="" name="File"> 
+    <label for="validationCustom01" class="form-label">Multiple</label>
+    <input type="checkbox" class="" name="File">
+  </div>
+ 
+  <div class="col-12" >
+    <button class="btn btn-primary " type="submit" style="width: 100%;">Get Results</button>
+  </div>
+ 
+
+</form>
+<div class="row m-3 p-2 card" >
+
+  <div class="col-6">
+    <button class="btn btn-primary " style="width: 100%;" type="button">Print</button>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-primary " style="width: 100%;" type="button">Save Session</button>
+  </div>
+
+
+</div>
+<div class="row m-3 p-2" style=" background-color: aliceblue;height: 350px;">
+
+  <div class="col-12">
+    <button class="btn btn-primary p-2" type="button" style=" width: 100%;">Connect</button>
+  </div>
+  
+
+
+</div>
+        </div>
+   
+     
+        <div class="col-md m-1"  id="mainview" style="border: 1px black solid; padding-bottom: 50px;" >
+          <div class="row ">
+          <div class="col" >
+         <img src= "{%static path %}" alt="{{path}}"  style="width: 450px;height: 350px;" >
+          </div>
+          
+        <div class="col" >
+       <img src= "{%static pathregr %}" alt="{{path}}"  style="width: 450px;height: 350px;" >     
+</div>
+<div class="row">
+  <div class="col" >
+    <label><strong>Residual</strong></label>
+<table class="Table">
+  <tr>
+
+    <th>Min</th>
+  
+    <th>1Q</th>
+    <th>Median</th>
+    <th>3Q</th>
+    <th>Max</th>
+  
+  </tr>
+  <tr>
+    <td>Data</td>
+    <td>Data</td>
+    <td>Data</td>
+    <td>Data</td>
+    <td>Data</td>
+  </tr>
+</table>
+
+
+</div>
+</div>
+<div class="row" style="margin-top:5px">
+  <div class="col" >
+    <label><strong>Coefficients</strong></label>
+<table class="Table">
+  <tr>
+    <th style="border: none;"></th>
+  
+    <th>Estimate</th>
+    <th>Standard Error</th>
+    <th>T value</th>
+    <th>Pr>|t|</th>
+
+  
+  </tr>
+  <tr>
+     <td>Estimate</td>
+   
+    <td>Data</td>
+    <td>Data</td>
+    <td>Data</td>
+    <td>Data</td>
+
+  </tr>
+  <tr>
+    <td>Y</td>
+  
+   <td>Data</td>
+   <td>Data</td>
+   <td>Data</td>
+   <td>Data</td>
+
+ </tr>
+</table>
+
+
+</div>
+</div>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>Residual Standarad Error</L>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>Multiple R-Squared</L>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>F-Statistic</label>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class='container-fluid card' style="height: 75px;border-top-style:groove;margin: 0px; ">
+</div>
+
+</body>
+</html>
+
+

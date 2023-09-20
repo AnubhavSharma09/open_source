@@ -1,0 +1,134 @@
+{% load static %}
+<script>
+
+  
+
+            
+
+</script>
+          <div class="row ">
+       
+          <div class="col" >
+       
+         <img src= "{%static path %}" alt="Scatter Plot"  style="width: 450px;height: 350px;" >
+          </div>
+        <div class="col" >   
+       <img src= "{%static pathregr %}" alt="Regression Plot"  style="width: 450px;height: 350px;  " > 
+</div>
+<div class="row">
+  <div class="col" style="margin-left:400px;" >
+    <label>Intercept: <strong>{{intercept}}</strong></label>
+    <br>
+     <label>Coefficient: <strong>{{coef}}</strong></label> 
+    </div>
+    </div>
+
+<div class="row">
+  <div class="col" >
+    <label><strong>Residual</strong></label>
+<table class="Table card_2"  style="border-radius:0px ;" >
+  <tr style="background-color: transparent">
+
+    <th>Mean</th>
+    <th>1Q</th>
+    <th>Median</th>
+    <th>3Q</th>
+    <th>Max</th>
+  
+  </tr>
+  <tr id="trrow" > 
+    <td id="min">{{mean}}</td>
+    <td id="1q">{{1q}}</td>
+    <td id="median">{{median}}</td>
+    <td id="3q">{{3q}}</td>
+    <td id="max">{{max}}</td>
+  </tr>
+</table>
+
+
+</div>
+</div>
+<div class="row" style="margin-top:5px;">
+  <div class="col" >
+    <label><strong>Coefficients</strong></label>
+<table class="Table card_2" id="tb"  style="border-radius:0px ;">
+  <tr > 
+    <th style="background-color:transparent;"></th>
+  
+    <th>Estimate</th>
+    <th>Standard Error</th>
+    <th>T value</th>
+    <th>Pr>|t|</th>
+
+  
+  </tr>
+  <tr>
+     <td>Intercept</td>
+   
+    <td>{{intercept}}</td>
+    <td>{{intercepterr}}</td>
+    <td>{{tvalinter}}</td>
+    <td>{{pvalinter}}</td>
+
+  </tr>
+  <tr >
+    <td>Y</td>
+  
+   <td id="Y">{{Y}}</td>
+   <td id="stderr">{{stderr}}</td>
+   <td id="tstat">{{tstat}}</td>
+   <td id="p_value">{{p_value}}</td>
+
+ </tr>
+</table>
+
+
+</div>
+</div>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>Residual Standarad Error</L>
+</div>
+<div class="col" >
+  <p id="residual">{{residual}}</p>
+</div>
+<div class="row card_2" style="margin-top:10px ;border-radius: 0px; margin-right: 0px;">
+  <div class="col" >
+    <label>Multiple R-Squared</label>
+</div>
+<div class="col" >
+  <p id="correlation">{{correlation}}</p>
+</div>
+</div>
+
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>F-Statistic</label>
+</div>
+<div class="col">
+  <p id="corr">{{fstat}}</p>
+</div>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>Degree of Freedom</label>
+</div>
+<div class="col">
+  <p id="corr">{{df}}</p>
+</div>
+</div>
+<div class="row" style="margin-top:10px">
+  <div class="col" >
+    <label>Message</label>
+</div>
+<div class="col">
+  <p id="corr">{{message}}</p>
+</div>
+</div>
+</div>
+
+
+
+
+

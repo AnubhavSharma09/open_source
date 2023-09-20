@@ -1,0 +1,20 @@
+{% include "runtest/common/header.html" %}
+<script src="../../static/scripts/anova.js" >
+</script>
+   
+<div class="col-md m-1 main_card"  id="mainview" style=" padding-bottom: 50px;" >
+     {%  if 'Regression' == data  %}
+            {%include 'runtest/regression.html' %}
+     {%  elif 'OneWayAnova' == data %}
+            {%include 'runtest/onewayanova.html'  %}
+     {%  elif 'TwoWayAnova' == data  %}
+            {%include 'runtest/regression.html' %}
+     {%  elif 'Chi-Square' == data %}
+            {%include 'runtest/onewayanova.html'  %}
+     {%  else %}
+            {%include 'runtest/onewayanova.html'  %}
+     {%  endif %} 
+</div>
+
+
+{% include "runtest/common/footer.html" %}

@@ -1,0 +1,114 @@
+{% load static %}
+{% csrf_token %}
+
+<script>
+
+sendValues={
+    FactorList:"",
+    PostHoc:"",
+    Factors:"",
+    target:""
+}
+
+count=0
+async function updateFactor(a){
+    if (count==0){
+        sendValues.target=a.target.innerText
+        a.target.disabled=true
+        count++
+    }
+    
+   sendValues.FactorList=a.target.innerText
+   sendValues.Factors=a.target.innerText
+}
+
+async function send(){
+    sendValues.PostHoc="false"
+    const a = await retrieve_data(sendValues.Factors,sendValues.PostHoc,sendValues.target)
+    if(a===true){
+        sendValues.FactorList=""
+    }
+    
+}
+async function conductPosthoc(){
+   sendValues.PostHoc="true"
+   const a = await post_hoc(sendValues.Factors,sendValues.PostHoc,sendValues.target)
+    if(a===true){
+        sendValues.Factors=""
+    }
+}
+ 
+ 
+
+
+</script>
+<script src="../../static/scripts/anova.js" >
+</script>
+<div class=".container-fluid" style="margin-top: 10px;"  >
+    <div class="container-fluid card_2" style="filter: saturate(180%); border-radius: 0px; text-align: center;">
+    <p>Select the factors.Factors here are the independent variables.</p>
+    <p>First click will select the dependent variable in the test</p>
+    <br>
+    </div>
+    <div class="row" style="border: 1px inset black; margin-top: 5px;">
+    {%for i in Factor_1%}
+    <div class="col" style="width:100%;">
+    <button class="btn btn card_2" style="width:100%; " onclick="updateFactor(event)">
+    {{i}}
+   </button>
+   
+                            
+    </div>
+    {%empty %}
+    {%endfor %}
+   
+   </div> 
+   <br>
+<button class="card"  style="filter: blur(0px)saturate(180%);" onclick="send()"   id="submit">Submit</button>
+   
+</div>
+<div class=".container-fluid" style="margin-top: 25px;" >
+    <div class="container-fluid" style="background-color: transparent; ">
+     <label>Results</label>
+    </div>
+    <div class="row">
+     
+ <div class="col">
+<table class="Table card_2" style="border-radius:0px;width: 100%;filter:saturate(180%)">
+    <tr>
+      
+        <th>Sum Squared</th>
+        <th>df</th>
+        <th>F</th>
+        <th>PR(>F)</th>
+    </tr>
+    <tr>
+        <td>{{SumSquared}}</td>
+        <td>{{dff}}</td>
+        <td>{{F}}</td>
+        <td>{{PR}}</td>
+    </tr>
+    <tr>
+        <tr class="card" style="width:inherit; border-radius:0px;width:398%; border-style: outset;">
+        <th style="border: none; filter: saturate(200%);">Residuals</th>
+    </tr>
+        <td>{{SumSquared}}</td>
+        <td>{{df_anova}}</td>
+        <td>{{F}}</td>
+        <td>{{PR}}</td>
+    </tr>
+</table>
+ 
+</div>
+
+   </div> 
+   <br>
+  
+   <button class="card"  style="filter: blur(0px)saturate(180%);" onclick="conductPosthoc()" id="submit">Conduct Post-Hoc</button>
+   <br>
+   <div class="container-fluid card" id="posthc"  style="width: 100%; text-align: center;display:none;">
+   <p id="posthoc" style="font-size:smaller; word-spacing: 10; font-weight: bold;"></p>
+</div>
+</div>
+   
+</div>

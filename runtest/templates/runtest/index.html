@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{% static 'CSS/index.css' %}" rel="stylesheet">
+
+<title>Stats Server</title>
+</head>
+<body>
+<div class=".container-fluid card_2" style="padding: 20px; border-radius: 0px;">
+    <h1 style="text-align: left;width: fit-content;"> Statastical Analysis</h1>
+    <div class="container" style="text-align: right;margin-right: 0px; width: fit-content;vertical-align: top;margin-top: -50px; ">
+<div class="btn-group " >
+    <a href="/admin" class="btn btn " aria-current="page" id="top-button">Admin</a>
+    <a href="#" class="btn btn" id="top-button">Profile</a>
+    <a href="#" class="btn btn" id="top-button">Network</a>
+  </div>
+  </div>
+</div>
+<div class=".container-fluid card" id="top-text">
+    <p >An Open Source platform for statastical analysis of the data which will complement your research work .Feel free to give a feedback.</p>
+    <p >A Platform by<strong><a href="" style="color: black;text-decoration-style: none;"> Code_Arena </a></strong></p>
+    <p >Powered  by <strong>Django Framework</strong></p>
+</div>
+<div class=".container-fluid" id="main" >
+ 
+    <p style="margin-left: 10px; color:white"><Strong>Hypothesis Testing</Strong></p>
+
+
+    <div class="row">
+        <div class="col">
+
+<a href="/apppage/home/onewayanova" style="text-decoration: none;">
+<button type="button"  class="btn btn-transparent" style="width: 100%;" >
+    <div class="box">
+    <img src="{% static 'home.png' %}" style="height: 250px;width:250px">
+    <label id="lbl">One-Way ANOVA</label>
+    </div>
+</button>
+</a>
+
+</div>
+<div class="col">
+<a href="/apppage/home/Regression" style="text-decoration: none;">
+    <button type="button"  class="btn btn-transparent" style="width: 100%;"  >
+        <div class="box">
+        <img src="{% static 'home.png' %}" style="height: 250px;width:250px">
+        <label id="lbl">Regression</label>
+        </div>
+    </button>
+    </a>
+
+</div>
+</div>
+<div class="container-fluid" style="color: white; text-align: center; margin-top: 25px;">
+    <p>More functions will be uploaded soon</p>
+</div>
+    
+
+</body>
+</html>
+
+
